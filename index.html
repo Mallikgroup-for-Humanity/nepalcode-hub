@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NepalCode Hub — GitHub Repository Studio (MIT Licensed)</title>
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="NepalCode Hub" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+  <script src="./install.js" defer></script>
   <!--
     =========================================================================
     MIT License
@@ -93,12 +100,15 @@
               MIT • Future of Nepal 🇳🇵
             </button>
           </div>
-          <p class="text-[11px] text-slate-400 font-mono">@~Nirajmallikhub • 2026 Open Source</p>
+          <p class="text-[11px] text-slate-400 font-mono">Mallik Group for Humanity • Open Source</p>
         </div>
       </div>
 
       <!-- Quick Controls -->
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="installAppBtn" type="button" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition">
+          Install App
+        </button>
         <button id="toggleSettingsBtn" class="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition flex items-center gap-1.5">
           <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
           <span>API & Prompt</span>
@@ -110,6 +120,18 @@
       </div>
     </div>
   </header>
+
+  <section id="installHelp" class="hidden bg-slate-900 border-b border-slate-800 px-4 py-4" aria-labelledby="installHelpTitle">
+    <div class="max-w-7xl mx-auto text-sm text-slate-300 space-y-2">
+      <div class="flex items-center justify-between gap-3">
+        <h2 id="installHelpTitle" class="font-semibold text-white">Install NepalCode Hub</h2>
+        <button id="closeInstallHelpBtn" type="button" class="text-xs text-slate-400 hover:text-white">Close</button>
+      </div>
+      <p>iPhone or iPad: in Safari, tap Share, then Add to Home Screen.</p>
+      <p>Android: open your browser menu and choose Install app or Add to Home screen.</p>
+      <p>Desktop: use the install icon in the address bar or the browser menu. Installation requires a supported browser and HTTPS (or localhost).</p>
+    </div>
+  </section>
 
   <!-- Collapsible API Key & System Prompt Panel -->
   <section id="settingsPanel" class="hidden bg-slate-900 border-b border-slate-800 px-4 py-4">

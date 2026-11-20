@@ -2,7 +2,7 @@
 
 NepalCode Hub is a browser-based GitHub repository studio. It lets you search for and explore GitHub repositories, inspect their files and README, preview HTML, and ask Gemini to explain or generate code. The app is a static HTML, CSS, and JavaScript project; it does not have a separate backend.
 
-> **3D Viewing Note:** Standard GitHub Markdown renders static text and links, whereas browsers that support inline HTML/CSS/JS can render the interactive **3D Viewing Stage** below. You can also open the standalone 3D preview snippet inside any HTML previewer or `index.html` / `m.html`.
+> **3D Viewing Note:** GitHub sanitizes scripts and interactive HTML in Markdown, so the stage below is not interactive on GitHub. To try it, copy the HTML and script below into a standalone HTML file and open it in a browser. The stage is not part of the application.
 
 ## Interactive 3D Viewing Stage
 
@@ -35,7 +35,7 @@ NepalCode Hub is a browser-based GitHub repository studio. It lets you search fo
       <!-- Middle / Files & Preview Layer -->
       <div style="position: absolute; inset: 0; border-radius: 14px; background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(56, 189, 248, 0.45); transform: translateZ(0px); padding: 14px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 18px 40px rgba(0,0,0,0.5);">
         <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #38bdf8;">Layer 02 • Repo Explorer</span>
-        <div style="font-size: 14px; font-weight: 600; color: #f8fafc;">index.html &amp; m.html</div>
+        <div style="font-size: 14px; font-weight: 600; color: #f8fafc;">index.html</div>
         <span style="font-size: 11px; color: #bae6fd;">Sandboxed HTML Preview</span>
       </div>
 
@@ -145,20 +145,31 @@ NepalCode Hub is a browser-based GitHub repository studio. It lets you search fo
 ## Source files
 
 - `index.html` — main application UI and client-side JavaScript.
-- `m.html` — alternate copy of the app page.
+- `m.html` — compatibility redirect to `index.html` for older links.
+- `manifest.webmanifest`, `install.js`, and `icons/` — installable web app metadata, install guidance, and icons.
 - `package.json` — project metadata and local development commands.
 - `vercel.json` — routes requests on Vercel to `index.html`.
 - `LICENSE` — MIT license terms.
 
 ## Run locally
 
-Requirements: Python 3. From the repository directory, run:
+Requirements: Python 3, plus Node.js and npm if using the npm command. From the repository directory, run:
 
 ```bash
 npm run dev
 ```
 
-Then open `http://localhost:8080`. This command serves the static files; there is no dependency installation or compilation step. You can also run `python3 -m http.server 8080` directly.
+Then open `http://localhost:8080`. This command serves the static files; there is no dependency installation or compilation step. Alternatively, run `python3 -m http.server 8080` directly without Node.js or npm. The app loads its CSS, fonts, and JavaScript libraries from external CDNs, so an internet connection is needed.
+
+## Install the app
+
+Open the deployed app over HTTPS (or use localhost for development), then select **Install App**. On supported browsers, an installation prompt appears; otherwise, the app shows manual instructions.
+
+- **iPhone and iPad:** open the app in Safari, tap Share, then **Add to Home Screen**.
+- **Android:** use the browser's **Install app** or **Add to Home screen** menu.
+- **Desktop:** use the install icon in the address bar or the browser's install menu, if available.
+
+This installs the web app, not an app-store package. Installation support depends on the browser. The app does not provide offline support: its CDN libraries and GitHub and Gemini APIs require an internet connection. Browser storage may be separate in the installed app (particularly on iOS), so existing drafts, saved items, and API settings may need to be added again.
 
 ## API access and keys
 
