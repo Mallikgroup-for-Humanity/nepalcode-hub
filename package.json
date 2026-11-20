@@ -1,0 +1,17 @@
+{
+  "name": "nepalcode-hub",
+  "version": "1.0.0",
+  "description": "NepalCode Hub — Open-Source GitHub Repository Studio & AI Code Generator for Nepal",
+  "private": false,
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "build": "echo 'Static HTML build ready'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mallikgroup-for-Humanity/nepalcode-hub.git"
+  },
+  "keywords": ["nepal", "github", "gemini-ai", "open-source", "mallik-group"],
+  "author": "Niraj Mallik <nirajmallik143@gmail.com>",
+  "license": "MIT"
+}
